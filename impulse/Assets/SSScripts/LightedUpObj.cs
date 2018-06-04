@@ -44,7 +44,7 @@ public class LightedUpObj : MonoBehaviour
         else
         { timer -= Time.fixedDeltaTime; }
 
-        if (duration > Stats.waveDelay)
+        if (duration > Stats.wisonTime)
         {
             Destroy(this.gameObject);
 

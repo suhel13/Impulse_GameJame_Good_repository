@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LightUp : MonoBehaviour
 {
-    public GameObject wow;
-    GameObject tempWow;
+    public GameObject LightedUpModel;
+    GameObject tempLightedUpModel;
     public GameObject Player;
     PlayerStats Stats;
     float distanceToPlayer;
@@ -31,9 +31,9 @@ public class LightUp : MonoBehaviour
         if (Stats.waveRange >= distanceToPlayer)
         {
             timer = distanceToPlayer / Stats.waveRange * 0.6f;
-            tempWow = Instantiate(wow, transform.position, Quaternion.identity);
-            tempWow.GetComponent<LightedUpObj>().timer = timer;
-            tempWow.GetComponent<LightedUpObj>().Stats = Stats;
+            tempLightedUpModel = Instantiate(LightedUpModel, transform.position, Quaternion.identity);
+            tempLightedUpModel.GetComponent<LightedUpObj>().timer = timer;
+            tempLightedUpModel.GetComponent<LightedUpObj>().Stats = Stats;
         }
     }
 
