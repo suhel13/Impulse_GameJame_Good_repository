@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerControler : MonoBehaviour
 {
     Rigidbody rb;
-    [Range(5f,15f)] public float speed;
+    [Range(5f, 15f)] public float speed;
     Vector3 axis;
+    public LightUpControler lightUpCon;
     // Use this for initialization
     void Start()
     {
@@ -18,8 +19,17 @@ public class PlayerControler : MonoBehaviour
     {
         axis.x = Input.GetAxis("Horizontal");
         axis.z = Input.GetAxis("Vertical");
-        axis.Normalize();
+        if (axis.magnitude > 1)
+        {
+            axis.Normalize();
+        }
+
         rb.velocity = axis * speed;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            lightUpCon.showLights();
+        }
 
     }
 }
