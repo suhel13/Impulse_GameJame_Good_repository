@@ -9,6 +9,8 @@ public class PlayerControler : MonoBehaviour
     Vector3 axis;
     public LightUpControler lightUpCon;
     public GameObject circle;
+
+    int hp=3;
     // Use this for initialization
     void Start()
     {
@@ -33,5 +35,10 @@ public class PlayerControler : MonoBehaviour
             lightUpCon.showLights();
         }
 
+    }
+
+    public void takeDamage(int damage)
+    {
+        hp -= damage;
     }
 }

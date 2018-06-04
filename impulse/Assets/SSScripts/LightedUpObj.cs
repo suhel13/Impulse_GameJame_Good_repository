@@ -14,6 +14,14 @@ public class LightedUpObj : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        if (this.gameObject.GetComponent<MeshRenderer>()==null)
+        {
+            foreach  (MeshRenderer meshrend in transform.GetComponentsInChildren<MeshRenderer>())
+            {
+                meshrend.enabled = false;
+            }
+        }
+        else
         this.gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
@@ -22,7 +30,15 @@ public class LightedUpObj : MonoBehaviour
     {
         if (timer <= 0)
         {
-            this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            if (this.gameObject.GetComponent<MeshRenderer>() == null)
+            {
+                foreach (MeshRenderer meshrend in transform.GetComponentsInChildren<MeshRenderer>())
+                {
+                    meshrend.enabled = true;
+                }
+            }
+            else
+                this.gameObject.GetComponent<MeshRenderer>().enabled = true;
             duration += Time.fixedDeltaTime;
         }
         else
