@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-
+    NavMeshAgent agent;
     public GameObject player;
-    public float speed = 4;
     // Use this for initialization
     void Start()
     {
-
+        agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.LookAt(player.transform);
-        Vector3.MoveTowards(transform.position, player.transform.position, speed);
+        agent.destination = player.transform.position;
     }
 }
