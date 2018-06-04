@@ -8,12 +8,13 @@ public class LightedUpObj : MonoBehaviour
     public PlayerStats Stats;
     float duration = 0;
     float distanceToPlayer;
-    public float timer;
+    public float timer=0.1f;
     bool spawned;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame

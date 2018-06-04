@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4415640934040842}
   - component: {fileID: 33576035602747554}
   - component: {fileID: 23975612820108512}
+  - component: {fileID: 114752812788205756}
   m_Layer: 0
   m_Name: ObstaclesLightedUp
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1263296701184416}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114752812788205756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1263296701184416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b90598b5948834e985d269c704f00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stats: {fileID: 0}
+  timer: 0

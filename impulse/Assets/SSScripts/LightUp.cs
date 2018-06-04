@@ -8,11 +8,16 @@ public class LightUp : MonoBehaviour
     GameObject tempWow;
     public GameObject Player;
     PlayerStats Stats;
-    float speed;
     float distanceToPlayer;
     public LightUpControler lightUpCon;
     float timer;
-    // Use this for initialization
+
+
+    private void Awake()
+    {
+        GetComponent<MeshRenderer>().enabled = false;
+    }
+
     void Start()
     {
         Stats = Player.GetComponent<PlayerStats>();
@@ -25,17 +30,12 @@ public class LightUp : MonoBehaviour
         distanceToPlayer = Vector3.Distance(Player.transform.position, transform.position);
         if (Stats.waveRange >= distanceToPlayer)
         {
-            activeTimer(distanceToPlayer / Stats.waveRange-speed * 0.75f);
-            tempWow=Instantiate(wow, transform.position, Quaternion.identity);
+            timer = distanceToPlayer / Stats.waveRange * 0.6f;
+            tempWow = Instantiate(wow, transform.position, Quaternion.identity);
             tempWow.GetComponent<LightedUpObj>().timer = timer;
             tempWow.GetComponent<LightedUpObj>().Stats = Stats;
         }
     }
 
-  
 
-    void activeTimer(float time)
-    {
-        timer = time;
-    }
 }
