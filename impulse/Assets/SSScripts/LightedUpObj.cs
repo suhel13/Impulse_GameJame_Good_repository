@@ -6,10 +6,11 @@ public class LightedUpObj : MonoBehaviour
 {
 
     public PlayerStats Stats;
-    float duration = 0;
+    public float duration = 0;
     float distanceToPlayer;
     public float timer=0.1f;
     bool spawned;
+    public GameObject parent;
 
     // Use this for initialization
     void Awake()
@@ -46,8 +47,8 @@ public class LightedUpObj : MonoBehaviour
 
         if (duration > Stats.wisonTime)
         {
+            parent.GetComponent<LightUp>().spawned = false;
             Destroy(this.gameObject);
-
         }
     }
 

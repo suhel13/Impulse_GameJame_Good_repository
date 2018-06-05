@@ -5,6 +5,6 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour {
 
     public float waveRange=6.8f;
-    public float wisonTime=1;
+    public float wisonTime=3;
 
 }

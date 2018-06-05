@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightUpControler : MonoBehaviour
 {
     public List<GameObject> lightUps = new List<GameObject>();
-
+   
 
     public void showLights()
     {

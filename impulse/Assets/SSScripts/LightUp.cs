@@ -11,11 +11,10 @@ public class LightUp : MonoBehaviour
     float distanceToPlayer;
     public LightUpControler lightUpCon;
     float timer;
-
+    public bool spawned = false;
 
     private void Awake()
     {
-        GetComponent<MeshRenderer>().enabled = false;
     }
 
     void Start()
@@ -30,10 +29,19 @@ public class LightUp : MonoBehaviour
         distanceToPlayer = Vector3.Distance(Player.transform.position, transform.position);
         if (Stats.waveRange >= distanceToPlayer)
         {
-            timer = distanceToPlayer / Stats.waveRange * 0.6f;
-            tempLightedUpModel = Instantiate(LightedUpModel, transform.position, Quaternion.identity);
-            tempLightedUpModel.GetComponent<LightedUpObj>().timer = timer;
-            tempLightedUpModel.GetComponent<LightedUpObj>().Stats = Stats;
+            if (spawned == false)
+            {
+                timer = distanceToPlayer / Stats.waveRange * 0.6f;
+                tempLightedUpModel = Instantiate(LightedUpModel, transform.position, Quaternion.identity);
+                tempLightedUpModel.GetComponent<LightedUpObj>().timer = timer;
+                tempLightedUpModel.GetComponent<LightedUpObj>().Stats = Stats;
+                tempLightedUpModel.GetComponent<LightedUpObj>().parent = this.gameObject;
+                spawned = true;
+            }
+            else
+            {
+                tempLightedUpModel.GetComponent<LightedUpObj>().duration = 0;
+            }
         }
     }
 
