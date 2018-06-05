@@ -38,7 +38,7 @@ public class MapGenerator : MonoBehaviour
                 }
                 if (temp!=null)
                 {
-                temp.GetComponent<LightUp>().Player = player;
+                temp.GetComponent<LightUp>().player = player;
                 temp.GetComponent<LightUp>().lightUpCon = lightUpCon;
                     temp = null;                }
 

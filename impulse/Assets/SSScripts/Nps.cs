@@ -1,0 +1,85 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+public class Nps : MonoBehaviour
+{
+    NavMeshAgent agent;
+    public GameObject player;
+    bool followPlayer;
+    public GameObject PressE;
+
+    float distanceToPlayer;
+    float timer;
+    PlayerStats Stats;
+    bool isActive = false;
+    public LightUpControler lightUpCon;
+    public Transform canvas;
+    // Use this for initialization
+
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        Stats = player.GetComponent<PlayerStats>();
+        GetComponent<MeshRenderer>().enabled = false;
+        lightUpCon.NPSs.Add(this.gameObject);
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (followPlayer)
+        {
+            transform.LookAt(player.transform);
+            agent.destination = player.transform.position;
+            if (Vector3.Distance(player.transform.position, transform.position) >= 6)
+            {
+                followPlayer = false;
+            }
+        }
+
+        if (isActive)
+        {
+            if (timer > 0)
+            {
+                timer -= Time.fixedDeltaTime;
+            }
+            else
+            {
+                GetComponent<MeshRenderer>().enabled = true;
+            }
+        }
+
+
+    }
+
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (isActive && other.tag == "Player"&&followPlayer==false)
+        {
+            PressE.SetActive(true);
+            canvas.transform.eulerAngles = new Vector3(canvas.transform.eulerAngles.x, 0f, transform.eulerAngles.x);
+            if (player.GetComponent<PlayerControler>().readyForNps)
+            {
+                followPlayer = true;
+                PressE.SetActive(false);
+            }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        PressE.SetActive(false);
+    }
+
+    public void onImpusleActive()
+    {
+        distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+        if (Stats.waveRange >= distanceToPlayer)
+        {
+            timer = distanceToPlayer / Stats.waveRange * 0.75f;
+            isActive = true;
+        }
+    }
+}

@@ -15,6 +15,8 @@ public class PlayerControler : MonoBehaviour
     float takingDamageDelay = 0;
     int hp = 3;
     public Image hpBar;
+
+    public bool readyForNps=false;
     // Use this for initialization
     void Start()
     {
@@ -26,6 +28,17 @@ public class PlayerControler : MonoBehaviour
     void FixedUpdate()
     {
         movement();
+
+        sendImpuls();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            readyForNps = true;
+        }
+        else
+        {
+            readyForNps = false;
+        }
 
         if (takingDamageDelay > 0)
         {
@@ -48,7 +61,10 @@ public class PlayerControler : MonoBehaviour
         }
 
         rb.velocity = axis * speed;
+    }
 
+    private void sendImpuls()
+    {
         if (Input.GetButtonDown("Jump"))
         {
             Instantiate(circle, transform.position, Quaternion.identity);

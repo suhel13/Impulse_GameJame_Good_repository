@@ -1,0 +1,17 @@
+exit
+nps when finded follow player to exit 
+to win you must save all nps and go to exit
+
+UI
+	start panel
+		name 
+		play button
+
+	Win panel 
+		(show time remove time for every heart less time better)
+		highScore table
+
+	lose panel 
+
+
+rozprzestrzenianie sie i gaszenie po¿arów;

@@ -6,7 +6,7 @@ public class LightUp : MonoBehaviour
 {
     public GameObject LightedUpModel;
     public GameObject tempLightedUpModel;
-    public GameObject Player;
+    public GameObject player;
     PlayerStats Stats;
     float distanceToPlayer;
     public LightUpControler lightUpCon;
@@ -19,14 +19,14 @@ public class LightUp : MonoBehaviour
 
     void Start()
     {
-        Stats = Player.GetComponent<PlayerStats>();
+        Stats = player.GetComponent<PlayerStats>();
         lightUpCon.lightUps.Add(this.gameObject);
     }
 
 
     public void onImpusleActive()
     {
-        distanceToPlayer = Vector3.Distance(Player.transform.position, transform.position);
+        distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
         if (Stats.waveRange >= distanceToPlayer)
         {
                 timer = distanceToPlayer / Stats.waveRange * 0.75f;

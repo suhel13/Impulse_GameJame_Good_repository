@@ -9,7 +9,10 @@ public class DamgeObstacles : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<PlayerControler>().takeDamage(damage);
+        if (other.tag == "Player")
+        {
+            other.GetComponent<PlayerControler>().takeDamage(damage);
+        }
     }
 }
 

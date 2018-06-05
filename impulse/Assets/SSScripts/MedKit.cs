@@ -9,11 +9,15 @@ public class MedKit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerControler>().takeHeal(healAmount))
+        if (other.tag == "Player")
         {
-            GetComponent<LightUp>().lightUpCon.lightUps.Remove(this.gameObject);
-            Destroy(GetComponent<LightUp>().tempLightedUpModel);
-            Destroy(this.gameObject);
+
+            if (other.GetComponent<PlayerControler>().takeHeal(healAmount))
+            {
+                GetComponent<LightUp>().lightUpCon.lightUps.Remove(this.gameObject);
+                Destroy(GetComponent<LightUp>().tempLightedUpModel);
+                Destroy(this.gameObject);
+            }
         }
     }
 

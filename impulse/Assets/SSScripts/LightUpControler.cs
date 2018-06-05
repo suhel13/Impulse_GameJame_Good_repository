@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightUpControler : MonoBehaviour
 {
     public List<GameObject> lightUps = new List<GameObject>();
-
+    public List<GameObject> NPSs = new List<GameObject>();
 
     public void showLights()
     {
@@ -16,6 +16,10 @@ public class LightUpControler : MonoBehaviour
                 item.GetComponent<LightUp>().onImpusleActive();
 
             }
+        }
+        foreach (GameObject item in NPSs)
+        {
+            item.GetComponent<Nps>().onImpusleActive();
         }
     }
 
