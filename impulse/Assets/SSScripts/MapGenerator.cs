@@ -9,6 +9,7 @@ public class MapGenerator : MonoBehaviour
     public GameObject Spike;
     public GameObject MedKit;
     public GameObject player;
+    public GameObject NPS;
     public LightUpControler lightUpCon;
     public Transform cameraa;
     GameObject temp;
@@ -23,32 +24,43 @@ public class MapGenerator : MonoBehaviour
                 if (color == Color.black)
                 {
                     temp = Instantiate(wall, new Vector3(x, 0.5f, y), Quaternion.identity);
+                    temp.GetComponent<LightUp>().player = player;
+                    temp.GetComponent<LightUp>().lightUpCon = lightUpCon;
                 }
-                else if (color==Color.red)
+                else if (color == Color.red)
                 {
                     temp = Instantiate(Spike, new Vector3(x, 0.5f, y), Quaternion.identity);
+                    temp.GetComponent<LightUp>().player = player;
+                    temp.GetComponent<LightUp>().lightUpCon = lightUpCon;
                 }
-                else if (color==Color.green)
+                else if (color == Color.green)
                 {
                     movePlayer(new Vector3(x, 1f, y));
                 }
-                else if (color==Color.blue)
+                else if (color == Color.blue)
                 {
-                    temp=Instantiate(MedKit, new Vector3(x, 0.5f, y), Quaternion.identity);
+                    temp = Instantiate(MedKit, new Vector3(x, 0.5f, y), Quaternion.identity);
+                    temp.GetComponent<LightUp>().player = player;
+                    temp.GetComponent<LightUp>().lightUpCon = lightUpCon;
                 }
-                if (temp!=null)
+                else if (color == Color.cyan)
                 {
-                temp.GetComponent<LightUp>().player = player;
-                temp.GetComponent<LightUp>().lightUpCon = lightUpCon;
-                    temp = null;                }
+                    temp = Instantiate(NPS, new Vector3(x, 0.5f, y), Quaternion.identity);
+                    temp.GetComponent<Nps>().player = player;
+                    temp.GetComponent<Nps>().lightUpCon = lightUpCon;
+                }
+
+
+                temp = null;
+
 
             }
         }
     }
 
-void movePlayer(Vector3 pos)
+    void movePlayer(Vector3 pos)
     {
-        Vector3 offSet= cameraa.position - player.transform.position;
+        Vector3 offSet = cameraa.position - player.transform.position;
         player.transform.position = pos;
         cameraa.position = offSet + player.transform.position;
     }

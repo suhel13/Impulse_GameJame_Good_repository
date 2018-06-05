@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Nps : MonoBehaviour
 {
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public GameObject player;
-    bool followPlayer;
+    public bool followPlayer;
+    public bool moveToExit = false;
     public GameObject PressE;
 
     float distanceToPlayer;
@@ -15,6 +16,7 @@ public class Nps : MonoBehaviour
     bool isActive = false;
     public LightUpControler lightUpCon;
     public Transform canvas;
+    public Vector3 destynation;
     // Use this for initialization
 
     void Start()
@@ -31,12 +33,18 @@ public class Nps : MonoBehaviour
         if (followPlayer)
         {
             transform.LookAt(player.transform);
-            agent.destination = player.transform.position;
+            destynation = player.transform.position;
+            agent.destination = destynation;
             if (Vector3.Distance(player.transform.position, transform.position) >= 6)
             {
-                followPlayer = false;
+                followPlayer = false;            
             }
         }
+        else if (moveToExit)
+        {
+            agent.destination = destynation;
+        }
+
 
         if (isActive)
         {
@@ -47,17 +55,15 @@ public class Nps : MonoBehaviour
             else
             {
                 GetComponent<MeshRenderer>().enabled = true;
-            }
-        }
-
-
+            }           
+        }        
     }
 
 
 
     private void OnTriggerStay(Collider other)
     {
-        if (isActive && other.tag == "Player"&&followPlayer==false)
+        if (isActive && other.tag == "Player"&&followPlayer==false&&moveToExit==false)
         {
             PressE.SetActive(true);
             canvas.transform.eulerAngles = new Vector3(canvas.transform.eulerAngles.x, 0f, transform.eulerAngles.x);
