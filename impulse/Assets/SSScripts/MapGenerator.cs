@@ -7,6 +7,7 @@ public class MapGenerator : MonoBehaviour
     public Texture2D map;
     public GameObject wall;
     public GameObject Spike;
+    public GameObject MedKit;
     public GameObject player;
     public LightUpControler lightUpCon;
     public Transform cameraa;
@@ -30,6 +31,10 @@ public class MapGenerator : MonoBehaviour
                 else if (color==Color.green)
                 {
                     movePlayer(new Vector3(x, 1f, y));
+                }
+                else if (color==Color.blue)
+                {
+                    temp=Instantiate(MedKit, new Vector3(x, 0.5f, y), Quaternion.identity);
                 }
                 if (temp!=null)
                 {

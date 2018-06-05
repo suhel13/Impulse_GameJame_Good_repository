@@ -8,22 +8,29 @@ public class LightedUpObj : MonoBehaviour
     public PlayerStats Stats;
     public float duration = 0;
     float distanceToPlayer;
-    public float timer=0.1f;
+    public float timer = 0.1f;
     bool spawned;
     public GameObject parent;
 
     // Use this for initialization
     void Awake()
     {
-        if (this.gameObject.GetComponent<MeshRenderer>()==null)
+        if (this.gameObject.GetComponent<MeshRenderer>() == null)
         {
-            foreach  (MeshRenderer meshrend in transform.GetComponentsInChildren<MeshRenderer>())
+            foreach (MeshRenderer meshrend in transform.GetComponentsInChildren<MeshRenderer>())
             {
                 meshrend.enabled = false;
             }
         }
         else
-        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+        {
+
+            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            foreach (MeshRenderer meshrend in transform.GetComponentsInChildren<MeshRenderer>())
+            {
+                meshrend.enabled = false;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -39,7 +46,13 @@ public class LightedUpObj : MonoBehaviour
                 }
             }
             else
+            {
                 this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+                foreach (MeshRenderer meshrend in transform.GetComponentsInChildren<MeshRenderer>())
+                {
+                    meshrend.enabled = true;
+                }
+            }
             duration += Time.fixedDeltaTime;
         }
         else
@@ -47,8 +60,11 @@ public class LightedUpObj : MonoBehaviour
 
         if (duration > Stats.wisonTime)
         {
-            parent.GetComponent<LightUp>().spawned = false;
-            Destroy(this.gameObject);
+            if (parent != null)
+            {
+                parent.GetComponent<LightUp>().spawned = false;
+                Destroy(this.gameObject);
+            }
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamgeObstacles : MonoBehaviour
 {
 
-    int damage = 1;
+    public int damage = 1;
 
     private void OnTriggerEnter(Collider other)
     {

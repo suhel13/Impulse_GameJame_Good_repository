@@ -5,13 +5,17 @@ using UnityEngine;
 public class LightUpControler : MonoBehaviour
 {
     public List<GameObject> lightUps = new List<GameObject>();
-   
+
 
     public void showLights()
     {
         foreach (GameObject item in lightUps)
         {
-            item.GetComponent<LightUp>().onImpusleActive();
+            if (item.GetComponent<LightUp>() != null)
+            {
+                item.GetComponent<LightUp>().onImpusleActive();
+
+            }
         }
     }
 

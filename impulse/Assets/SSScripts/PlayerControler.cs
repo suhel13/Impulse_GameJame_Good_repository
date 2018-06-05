@@ -31,7 +31,7 @@ public class PlayerControler : MonoBehaviour
         {
             takingDamageDelay -= Time.fixedDeltaTime;
         }
-        else if (playerMat.color == Color.red)
+        else if (playerMat.color == Color.red||playerMat.color==Color.green)
         {
             playerMat.color = Color.white;
         }
@@ -69,6 +69,24 @@ public class PlayerControler : MonoBehaviour
                 playerIsDead();
             }
         }
+    }
+
+    public bool takeHeal(int heal)
+    {
+
+        if (hp <= 4)
+        {
+
+
+            hp += heal;
+            takingDamageDelay = maxtakingDamageDelay;
+            playerMat.color = Color.green;
+            hpBar.fillAmount = hp / 5f;
+            return true;
+        }
+        else
+            return false;
+        
     }
 
     void playerIsDead()
