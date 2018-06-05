@@ -10,13 +10,18 @@ public class ExitZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="NPS")
+        if (other.tag == "NPS")
         {
             other.GetComponent<Nps>().followPlayer = false;
             other.GetComponent<Nps>().moveToExit = true;
             other.GetComponent<Nps>().agent.stoppingDistance = 0.1f;
             other.GetComponent<Nps>().destynation = positions[nextSpot];
             nextSpot++;
+
+        }
+        if (other.tag == "Player" && nextSpot == 3)
+        {
+            Debug.Log("you Win");
         }
     }
 }
