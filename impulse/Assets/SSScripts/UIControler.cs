@@ -15,6 +15,7 @@ public class UIControler : MonoBehaviour
     public Text textLose;
     public GameObject menuPanel;
     public GameObject storyPanel;
+    public GameObject creditsPanel;
 
     public Image toSave;
     public Image Saved;
@@ -54,6 +55,11 @@ public class UIControler : MonoBehaviour
         losePanel.SetActive(false);
     }
 
+    public void moveToCredits()
+    {
+        menuPanel.SetActive(false);
+        creditsPanel.SetActive(true);
+    }
 
     public void startGame()
     {
@@ -76,4 +82,6 @@ public class UIControler : MonoBehaviour
         Saved.fillAmount = exitZone.nextSpot / 3f;
         toSave.fillAmount = (3 - exitZone.nextSpot) / 3f;
     }
+
+    
 }
