@@ -10,25 +10,24 @@ public class PlayerControler : MonoBehaviour
     public LightUpControler lightUpCon;
     public GameObject circle;
     public Material playerMat;
-    
+
 
     float maxtakingDamageDelay = 1f;
     float takingDamageDelay = 0f;
     int hp = 3;
     public Image hpBar;
-    bool firstimpulse=false;
-    public bool readyForNps=false;
+    bool firstimpulse = false;
+    public bool readyForNps = false;
     public GameObject Tutorial_one;
 
-    float WaveDelay = 0.25f;
-    float startWaveDelay=2;
+    float WaveDelay = 0f;
+    float startWaveDelay = 1.5f;
 
     public float timer = 200;
     public Text timerText;
-    public GameObject losePanel;
-    public Text text;
-    public GameObject menuPanel;
-    public ExitZone exitZone;
+
+    public Image Batery;
+    public UIControler uIControler;
     void Start()
     {
         Time.timeScale = 0;
@@ -39,13 +38,15 @@ public class PlayerControler : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        updateTimer();
-
-        movement();
+        if (firstimpulse)
+        {
+            movement();
+            updateTimer();
+        }
 
         sendImpuls();
 
-        if (Input.GetKeyDown(KeyCode.E)||Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Fire1"))
         {
             readyForNps = true;
         }
@@ -58,7 +59,7 @@ public class PlayerControler : MonoBehaviour
         {
             takingDamageDelay -= Time.fixedDeltaTime;
         }
-        else if (playerMat.color == Color.red||playerMat.color==Color.green)
+        else if (playerMat.color == Color.red || playerMat.color == Color.green)
         {
             playerMat.color = Color.white;
         }
@@ -80,16 +81,18 @@ public class PlayerControler : MonoBehaviour
 
     private void sendImpuls()
     {
-        if (WaveDelay<=0)
+        if (WaveDelay >= startWaveDelay && Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(circle, transform.position, Quaternion.identity);
             lightUpCon.showLights();
             firstimpulse = true;
-            WaveDelay = startWaveDelay;
+            WaveDelay = 0;
+            Tutorial_one.SetActive(false);
         }
         else
         {
-            WaveDelay -= Time.fixedDeltaTime;
+            WaveDelay += Time.fixedDeltaTime;
+            Batery.fillAmount = WaveDelay/ startWaveDelay;
         }
     }
 
@@ -101,7 +104,7 @@ public class PlayerControler : MonoBehaviour
             takingDamageDelay = maxtakingDamageDelay;
             playerMat.color = Color.red;
             hpBar.fillAmount = hp / 5f;
-            if (hp<=0)
+            if (hp <= 0)
             {
                 endGame();
             }
@@ -121,33 +124,23 @@ public class PlayerControler : MonoBehaviour
         }
         else
             return false;
-        
+
     }
 
     void endGame()
     {
         Debug.Log("przegrałeś");
-        losePanel.SetActive(true);
-      
+        uIControler.activeLosePanel();
     }
-    
+
     void updateTimer()
     {
         timer -= Time.fixedDeltaTime;
-        timerText.text = ("Pozostało "+(int)timer +" secund");
-        if (timer<197)
-        {
-            Tutorial_one.SetActive(false);
-        }
-        else if (timer<0)
+        timerText.text = ("Pozostało " + (int)timer + " secund");
+        if (timer < 0)
         {
             endGame();
         }
     }
-    public void startGame()
-    {
-        menuPanel.SetActive(false);
-        Time.timeScale = 1;
-        text.text = ("Udało ci się uratować" + exitZone.nextSpot+ "/3 zakładników.");
-    }
+
 }

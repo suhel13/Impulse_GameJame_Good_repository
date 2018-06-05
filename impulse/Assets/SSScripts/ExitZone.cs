@@ -8,9 +8,8 @@ public class ExitZone : MonoBehaviour
 
     Vector3[] positions = new Vector3[] { new Vector3(22.7f, 1, -4.58f), new Vector3(21.7f, 1, -4.58f), new Vector3(20.7f, 1, -4.58f) };
     public int nextSpot = 0;
-    public GameObject wonPanel;
-    public Text text;
-    public PlayerControler playerCon;
+
+    public UIControler uIControler;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "NPS")
@@ -23,8 +22,7 @@ public class ExitZone : MonoBehaviour
             if (nextSpot == 3)
             {
                 Debug.Log("you Win");
-                wonPanel.SetActive(true);
-                text.text = ("Zajęło ci to: " + (int)(200 - playerCon.timer) + " sekund");
+                uIControler.activeWonPanel();
             }
         }
     }
