@@ -9,7 +9,7 @@ public class MapGenerator : MonoBehaviour
     public GameObject Spike;
     public GameObject player;
     public LightUpControler lightUpCon;
-    public Transform camera;
+    public Transform cameraa;
     GameObject temp;
     // Use this for initialization
     void Start()
@@ -43,8 +43,8 @@ public class MapGenerator : MonoBehaviour
 
 void movePlayer(Vector3 pos)
     {
-        Vector3 offSet= camera.position - player.transform.position;
+        Vector3 offSet= cameraa.position - player.transform.position;
         player.transform.position = pos;
-        camera.position = offSet + player.transform.position;
+        cameraa.position = offSet + player.transform.position;
     }
 }

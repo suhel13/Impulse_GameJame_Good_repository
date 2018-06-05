@@ -31,7 +31,7 @@ public class LightUp : MonoBehaviour
         {
             if (spawned == false)
             {
-                timer = distanceToPlayer / Stats.waveRange * 0.6f;
+                timer = distanceToPlayer / Stats.waveRange * 0.75f;
                 tempLightedUpModel = Instantiate(LightedUpModel, transform.position, Quaternion.identity);
                 tempLightedUpModel.GetComponent<LightedUpObj>().timer = timer;
                 tempLightedUpModel.GetComponent<LightedUpObj>().Stats = Stats;
