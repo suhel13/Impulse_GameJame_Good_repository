@@ -19,6 +19,7 @@ public class ExitZone : MonoBehaviour
             other.GetComponent<Nps>().agent.stoppingDistance = 0.1f;
             other.GetComponent<Nps>().destynation = positions[nextSpot];
             nextSpot++;
+            uIControler.updatePeople();
             if (nextSpot == 3)
             {
                 Debug.Log("you Win");

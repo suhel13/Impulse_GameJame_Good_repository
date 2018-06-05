@@ -136,7 +136,7 @@ public class PlayerControler : MonoBehaviour
     void updateTimer()
     {
         timer -= Time.fixedDeltaTime;
-        timerText.text = ("Pozostało " + (int)timer + " secund");
+        timerText.text = ((int)timer + " sekund");
         if (timer < 0)
         {
             endGame();
