@@ -37,7 +37,8 @@ public class Nps : MonoBehaviour
             agent.destination = destynation;
             if (Vector3.Distance(player.transform.position, transform.position) >= 6)
             {
-                followPlayer = false;            
+                followPlayer = false;
+                agent.destination = transform.position;
             }
         }
         else if (moveToExit)

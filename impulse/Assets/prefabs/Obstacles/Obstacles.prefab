@@ -67,7 +67,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LightedUpModel: {fileID: 1263296701184416, guid: 964894f1cc3483146932d5bc030d677a,
     type: 2}
-  Player: {fileID: 0}
+  tempLightedUpModel: {fileID: 0}
+  player: {fileID: 0}
   lightUpCon: {fileID: 0}
   spawned: 0
 --- !u!208 &208257733507140932
