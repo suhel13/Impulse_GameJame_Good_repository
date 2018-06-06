@@ -35,11 +35,15 @@ public class Nps : MonoBehaviour
             transform.LookAt(player.transform);
             destynation = player.transform.position;
             agent.SetDestination(destynation);
-            if (Vector3.Distance(player.transform.position, transform.position) >= 7)
+
+            
+
+            if (countPathDistanse(agent.path) >= 7)
             {
                 followPlayer = false;
                 agent.destination = transform.position;
             }
+            Debug.Log(countPathDistanse(agent.path));
         }
         else if (moveToExit)
         {
@@ -56,15 +60,29 @@ public class Nps : MonoBehaviour
             else
             {
                 GetComponent<MeshRenderer>().enabled = true;
-            }           
-        }        
+            }
+        }
     }
 
-
+    private float countPathDistanse(NavMeshPath path)
+    {
+        Vector3[] corners = path.corners;
+        float distanse = 0;
+        for (int i = 0; i < corners.Length; i++)
+        {
+            if (i == 0)
+            {
+                distanse += Vector3.Distance(transform.position, corners[i]);
+            }
+            else
+                distanse += Vector3.Distance(corners[i - 1], corners[i]);
+        }
+        return distanse;
+    }
 
     private void OnTriggerStay(Collider other)
     {
-        if (isActive && other.tag == "Player"&&followPlayer==false&&moveToExit==false)
+        if (isActive && other.tag == "Player" && followPlayer == false && moveToExit == false)
         {
             PressE.SetActive(true);
             canvas.transform.eulerAngles = new Vector3(canvas.transform.eulerAngles.x, 0f, transform.eulerAngles.x);
