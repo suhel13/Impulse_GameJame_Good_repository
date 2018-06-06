@@ -61,7 +61,7 @@ public class UIControler : MonoBehaviour
     public void moveToMainManuFromCredits()
     {
         menuPanel.SetActive(true);
-        creditsPanel.SetActive(true);
+        creditsPanel.SetActive(false);
     }
 
 

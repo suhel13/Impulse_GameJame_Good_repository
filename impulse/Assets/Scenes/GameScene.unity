@@ -479,7 +479,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Powodzenia nast\u0119pnym razem."
+  m_Text: "Powodzenia nast\u0119pnym razem"
 --- !u!222 &104499441
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1630,7 +1630,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Kliknij aby ruszy\u0107 w dalsz\u0105 przygod\u0119!"
+  m_Text: "Kliknij aby wyruszy\u0107 na przygod\u0119 jeszcze raz!"
 --- !u!222 &730894772
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2517,7 +2517,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Uratowa\u0142e\u015B wszystkich z piramidy !"
+  m_Text: "Uratowa\u0142e\u015B wszystkich z piramidy!"
 --- !u!222 &1473857329
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2781,7 +2781,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Kliknij aby z p\u0142aczem wyj\u015B\u0107 do g\u0142\xF3wnego menu."
+  m_Text: "Kliknij aby z p\u0142aczem wyj\u015B\u0107 do g\u0142\xF3wnego menu"
 --- !u!222 &1639481888
 CanvasRenderer:
   m_ObjectHideFlags: 0

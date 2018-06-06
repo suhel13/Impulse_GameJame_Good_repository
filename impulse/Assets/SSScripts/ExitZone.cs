@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ExitZone : MonoBehaviour
 {
 
-    Vector3[] positions = new Vector3[] { new Vector3(22.7f, 1, -4.58f), new Vector3(21.7f, 1, -4.58f), new Vector3(20.7f, 1, -4.58f) };
+    Vector3[] positions = new Vector3[] { new Vector3(18f, 1, -4f), new Vector3(17f, 1, -4f), new Vector3(16f, 1, -4f) };
     public int nextSpot = 0;
 
     public UIControler uIControler;
