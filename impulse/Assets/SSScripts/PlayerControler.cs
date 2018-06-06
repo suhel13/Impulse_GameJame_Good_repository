@@ -30,7 +30,7 @@ public class PlayerControler : MonoBehaviour
     public UIControler uIControler;
     void Start()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 1;
         rb = GetComponent<Rigidbody>();
         hpBar.fillAmount = hp / 5f;
     }

@@ -29,13 +29,13 @@ public class UIControler : MonoBehaviour
     public void activeLosePanel()
     {
         losePanel.SetActive(true);
-        if (exitZone.nextSpot==0)
+        if (exitZone.nextSpot == 0)
         {
             textLose.text = ("Nie uratowałeś nikogo!!!");
         }
-        else if (exitZone.nextSpot<3)
+        else if (exitZone.nextSpot < 3)
         {
-        textLose.text = ("Udało ci się uratować tylko " + exitZone.nextSpot +"!");
+            textLose.text = ("Udało ci się uratować tylko " + exitZone.nextSpot + "!");
         }
         Time.timeScale = 0;
     }
@@ -49,10 +49,7 @@ public class UIControler : MonoBehaviour
 
     public void moveToMainManu()
     {
-        menuPanel.SetActive(true);
-        storyPanel.SetActive(false);
-        wonPanel.SetActive(false);
-        losePanel.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 
     public void moveToCredits()
@@ -61,15 +58,21 @@ public class UIControler : MonoBehaviour
         creditsPanel.SetActive(true);
     }
 
+    public void moveToMainManuFromCredits()
+    {
+        menuPanel.SetActive(true);
+        creditsPanel.SetActive(true);
+    }
+
+
     public void startGame()
     {
-        storyPanel.SetActive(false);
-        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
 
     }
     public void restartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void quitGame()
@@ -83,5 +86,5 @@ public class UIControler : MonoBehaviour
         toSave.fillAmount = (3 - exitZone.nextSpot) / 3f;
     }
 
-    
+
 }
