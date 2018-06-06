@@ -69,14 +69,13 @@ public class UIControler : MonoBehaviour
     }
 
 
-    public void startGame()
+    public void startGame(int level)
     {
-        scenTran.loadScene(1);
-
+        scenTran.loadScene(level);
     }
-    public void restartGame()
+    public void restartGame(int level)
     {
-        scenTran.loadScene(1);
+        scenTran.loadScene(level);
     }
 
     public void quitGame()
