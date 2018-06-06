@@ -660,7 +660,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "- Bartek Kawa\n- Pawe\u0142 Tryfon\n"
+  m_Text: "- Bart\u0142omiej Kawa\n- Pawe\u0142 Tryfon\n"
 --- !u!222 &610253425
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1650,9 +1650,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0179r\xF3d\u0142a\nIcons made by Smashicons & Freepik from www.flaticon.com
-    is licensed by CC 3.0 BY\n\nmuzyka\r\r\n\n\"Sad Day\" Bensound.com\r\n\"Mystery
-    Bazaar\" Kevin MacLeod (incompetech.com)\r\n\"Hidden Wonders\" Kevin MacLeod (incompetech.com)\r\nLicensed
-    under CC 3.0 BY"
+    is licensed by CC 3.0 BY\n\nmuzyka\r\r\n\"Sad Day\" Bensound.com\r\n\"Mystery
+    Bazaar\" Kevin MacLeod (incompetech.com)\r\n\"Hidden Wonders\" Kevin MacLeod (incompetech.com)\r\n\"Master
+    of the Feast\" Kevin MacLeod (incompetech.com)\nLicensed under CC 3.0 BY"
 --- !u!222 &1098861004
 CanvasRenderer:
   m_ObjectHideFlags: 0
