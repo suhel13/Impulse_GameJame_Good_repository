@@ -81,7 +81,7 @@ public class PlayerControler : MonoBehaviour
 
     private void sendImpuls()
     {
-        if (WaveDelay >= startWaveDelay && Input.GetKeyDown(KeyCode.Space))
+        if (WaveDelay >= startWaveDelay && Input.GetButtonDown("Jump"))
         {
             Instantiate(circle, transform.position, Quaternion.identity);
             lightUpCon.showLights();
