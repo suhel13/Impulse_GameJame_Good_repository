@@ -19,11 +19,14 @@ public class UIControler : MonoBehaviour
 
     public Image toSave;
     public Image Saved;
+
+    public GameObject gameAudio;
     public void activeWonPanel()
     {
         wonPanel.SetActive(true);
         textWin.text = ("Zajęło ci to: " + (int)(200 - playerCon.timer) + " sekundy");
         Time.timeScale = 0;
+        gameAudio.SetActive(false);
     }
 
     public void activeLosePanel()
@@ -38,6 +41,7 @@ public class UIControler : MonoBehaviour
             textLose.text = ("Udało ci się uratować tylko " + exitZone.nextSpot + "!");
         }
         Time.timeScale = 0;
+        gameAudio.SetActive(false);
     }
 
 
