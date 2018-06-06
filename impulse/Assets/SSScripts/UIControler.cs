@@ -24,7 +24,7 @@ public class UIControler : MonoBehaviour
     public void activeWonPanel()
     {
         wonPanel.SetActive(true);
-        textWin.text = ("Zajęło ci to: " + (int)(200 - playerCon.timer) + " sekundy");
+        textWin.text = ("Zajęło ci to: " + (int)(200 - playerCon.timer) + " sek.");
         Time.timeScale = 0;
         gameAudio.SetActive(false);
     }

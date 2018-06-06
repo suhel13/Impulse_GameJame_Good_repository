@@ -3395,8 +3395,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Kliknij aby osi\u0105\u015B\u0107 na laurach i wyjd\u017A do g\u0142\xF3wnego
-    menu."
+  m_Text: "Kliknij aby osi\u0105\u015B\u0107 na laurach \ni wyjd\u017A do g\u0142\xF3wnego
+    menu"
 --- !u!222 &1937893945
 CanvasRenderer:
   m_ObjectHideFlags: 0
