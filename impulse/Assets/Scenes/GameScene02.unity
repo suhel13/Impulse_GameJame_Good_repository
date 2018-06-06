@@ -790,8 +790,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.4201145, y: 3.8736796, z: 2.153542}
-  m_Center: {x: -0.3671751, y: -0.25558996, z: 1.004756}
+  m_Size: {x: 7.4201145, y: 2.7701192, z: 2.153542}
+  m_Center: {x: -0.3671751, y: 0.29619038, z: 1.004756}
 --- !u!4 &223824753
 Transform:
   m_ObjectHideFlags: 0
@@ -1816,8 +1816,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Poruszaj si\u0119 za pomoc\u0105 AWSD\nSkany wykonuj za pomoc\u0105 SPACE\nAby
-    kontynuowa\u0107 wykonaj skan"
+  m_Text: "Poruszaj si\u0119 za pomoc\u0105 WSAD\nSkany wykonuj za pomoc\u0105 SPACE\nAby
+    rozpocz\u0105\u0107 wykonaj skan"
 --- !u!222 &861596390
 CanvasRenderer:
   m_ObjectHideFlags: 0
