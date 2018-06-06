@@ -7,7 +7,7 @@ public class UIControler : MonoBehaviour
 {
     public ExitZone exitZone;
     public PlayerControler playerCon;
-
+    public ScenTransition scenTran;
     public GameObject wonPanel;
     public Text textWin;
 
@@ -53,7 +53,7 @@ public class UIControler : MonoBehaviour
 
     public void moveToMainManu()
     {
-        SceneManager.LoadScene(0);
+        scenTran.loadScene(0);
     }
 
     public void moveToCredits()
@@ -71,12 +71,12 @@ public class UIControler : MonoBehaviour
 
     public void startGame()
     {
-        SceneManager.LoadScene(1);
+        scenTran.loadScene(1);
 
     }
     public void restartGame()
     {
-        SceneManager.LoadScene(1);
+        scenTran.loadScene(1);
     }
 
     public void quitGame()
